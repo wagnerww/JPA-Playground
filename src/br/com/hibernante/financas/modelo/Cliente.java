@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -18,6 +19,8 @@ public class Cliente {
 	private String profissao;
 	private String endereco;
 
+	// Sem o JoinColumn unique = true. É possível armazenar vincular a conta em outros clientes. O unique cria uma constraint 
+	@JoinColumn(unique = true)
 	@OneToOne
 	private Conta conta;
 
